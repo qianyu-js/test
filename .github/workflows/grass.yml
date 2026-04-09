@@ -13,15 +13,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      - run: echo "update: $(date)" >> grass.txt
+      - name: Update file
+        run: |
+          echo "update: $(date)" >> grass.txt
 
-      - run: |
+      - name: Commit changes
+        run: |
           git config user.name "grass-bot"
           git config user.email "grass-bot@example.com"
 
           git add grass.txt
           git commit -m "chore: grow grass" || echo "No changes"
 
-      - run: git push
+      - name: Push changes
+        run: git push
