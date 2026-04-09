@@ -1,8 +1,8 @@
-name: Grass Bot
+name: Grass Bot (Every 5 min)
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "*/5 * * * *"  # 5分ごと（UTC）
   workflow_dispatch:
 
 permissions:
